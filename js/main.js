@@ -11,17 +11,24 @@ let currentPage = null;
 // TODO: Create a function called `getCurrentPage()`. It should accept one
 // parameter, which is the `slug` for the current page. This function will fetch
 // the current page and return a page object using the `slug` value for a key.
-
-
-
+function getCurrentPage(pageSlug) {
+    // function code goes here
+}
 // TODO: Create a function called `recordChoice()` that will accept a `slug`
 // parameter and add it to the `choiceList` Array (probably using `push()`).
-
-
+function recordChoice(pageSlug) {
+    // function code goes here
+}
+choiceList.push(pageSlug);
 
 // TODO: Create a function called `undoChoice()` that will remove the last
 // `slug` in the `choiceList` Array and then will return the last `slug` in the
 // `choiceList` Array.
+function undoChoice() {
+    // function code goes here
+}
+choiceList.pop();
+return choiceList[choiceList.length-1];
 
 
 
@@ -29,6 +36,8 @@ let currentPage = null;
 // method (such as querySelector or getElementByID) to set the variable 
 // pageContent to the <p> element with the ID of 'story-text' and set the
 // variable choicesUL to the <ul> element with the ID 'choices'.
+let pageContent = document.getElementById('story-text');
+let choicesUL = document.getElementById('choices');
 
 // TODO: Create a function called `updatePage()` that accepts a `page` parameter
 // and handles displaying the page in three steps:
@@ -39,8 +48,19 @@ let currentPage = null;
 //     element should have an attribute called 'data-slug' set to
 //     page.choices[i].link.
 //  3. At the end of the function, call the function addEventListeners().
-
-
+function updatePage(storyPage) {
+    // function code goes here
+}
+pageContent.textContent = storyPage.text;
+choicesUL.innerHTML = '';
+for (choice of storyPage.choices){
+    // code goes here
+}
+let newLI = document.createElement('li');
+newLI.textContent = choice.text;
+newLI.setAttribute('data-slug', choice.link);
+choicesUL.appendChild(newLI);
+addEventListeners();
 
 // TODO: Create a function called `changePage()` that accepts a parameter called
 // `slug` and which handles "turning the page" in three steps:
@@ -50,7 +70,12 @@ let currentPage = null;
 //     function (and give it the `slug` as a parameter).
 //  3. It should invoke the `updatePage()` function (and give it the
 //     `currentPage` object as a parameter).
-
+function changePage(newSlug){
+    // function code goes here
+}
+recordChoice(newSlug);
+let newPage = getCurrentPage(newSlug);
+updatePage(newPage);
 
 
 ///////////////////////////////////////////////////
