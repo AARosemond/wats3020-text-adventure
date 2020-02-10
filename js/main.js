@@ -3,8 +3,8 @@ let choiceList = ['p1'];
 let currentPage = null;
 
 
-function getCurrentPage(slug); {
-    let newPage = storyData(slug);
+function getCurrentPage(slug) {
+    let newPage = storyData[slug];
     return newPage;
 }
 
@@ -39,10 +39,6 @@ function changePage(slug){
     let newPage = getCurrentPage(slug);
     updatePage(newPage);
 }
-
-
-
-
 
 ///////////////////////////////////////////////////
 //////// Story Data //////////////////////////////
