@@ -30,7 +30,7 @@ function undoChoice() {
 choiceList.pop();
 return choiceList[choiceList.length-1];
 
-let pageContent = document.querySelector('#story-text');
+let pageContent = document.getElementById('story-text');
 let choicesUL = document.querySelector('#choices');
 
 // TODO: Create a function called `updatePage()` that accepts a `page` parameter
@@ -42,19 +42,17 @@ let choicesUL = document.querySelector('#choices');
 //     element should have an attribute called 'data-slug' set to
 //     page.choices[i].link.
 //  3. At the end of the function, call the function addEventListeners().
-function updatePage(storyPage) {
-    // function code goes here
+function updatePage(newPage) {
+    pageContent.innerHTML = newPage.text;
+    for (let choice of newPage.choices) {
+        let newLI = document.createElement('li');
+        newLI.innerHTML = choice.text;
+        newLI.setAttribute('data-slug', choice.link);
+        choicesUL.appendChild(newLI);
+    }
+    addEventListeners();
 }
-pageContent.textContent = storyPage.text;
-choicesUL.innerHTML = '';
-for (choice of storyPage.choices){
-    // code goes here
-}
-let newLI = document.createElement('li');
-newLI.textContent = choice.text;
-newLI.setAttribute('data-slug', choice.link);
-choicesUL.appendChild(newLI);
-addEventListeners();
+
 
 // TODO: Create a function called `changePage()` that accepts a parameter called
 // `slug` and which handles "turning the page" in three steps:
