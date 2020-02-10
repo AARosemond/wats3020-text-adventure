@@ -3,7 +3,7 @@ let choiceList = ['p1'];
 let currentPage = null;
 
 
-function getCurrentPage(slug) {
+function getCurrentPage(slug); {
     let newPage = storyData(slug);
     return newPage;
 }
@@ -34,9 +34,9 @@ function updatePage(newPage) {
     addEventListeners();
 }
 
-function changePage(newSlug){
-    recordChoice(newSlug);
-    let newPage = getCurrentPage(newSlug);
+function changePage(slug){
+    recordChoice(slug);
+    let newPage = getCurrentPage(slug);
     updatePage(newPage);
 }
 
