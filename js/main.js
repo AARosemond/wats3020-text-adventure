@@ -19,7 +19,7 @@ function undoChoice() {
 }
 
 
-let pageContent = document.getElementById('story-text');
+let pageContent = document.querySelector('#story-text');
 let choicesUL = document.querySelector('#choices');
 
 function updatePage(newPage) {
