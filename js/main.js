@@ -30,14 +30,8 @@ function undoChoice() {
 choiceList.pop();
 return choiceList[choiceList.length-1];
 
-
-
-// TODO: Create two variables: pageContent and choicesUL. Use a DOM selector
-// method (such as querySelector or getElementByID) to set the variable 
-// pageContent to the <p> element with the ID of 'story-text' and set the
-// variable choicesUL to the <ul> element with the ID 'choices'.
-let pageContent = document.getElementById('story-text');
-let choicesUL = document.getElementById('choices');
+let pageContent = document.querySelector('#story-text');
+let choicesUL = document.querySelector('#choices');
 
 // TODO: Create a function called `updatePage()` that accepts a `page` parameter
 // and handles displaying the page in three steps:
